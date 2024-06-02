@@ -9,7 +9,7 @@ function Auth() {
         <div className="flex flex-col justify-center items-center mt-5">
             <h1 className="text-4xl font-bold">FLASH FEEDBACK</h1>
 
-            {auth?.user && <div className="flex items-center gap-10">
+            {auth?.user && auth?.user.photoUrl && <div className="flex items-center gap-10">
                 <Image src={auth?.user?.photoUrl} alt="userImage" width={100} height={100} />
                 <p>Current User: {auth?.user?.name}:{auth?.user?.uid}</p>
             </div>}
