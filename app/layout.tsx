@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ProvideAuth } from "@/lib/auth";
+import { Providers } from "@/components/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ProvideAuth>
+      <Providers>
         <body className={inter.className}>{children}</body>
-      </ProvideAuth>
+      </Providers>
     </html>
   );
 }
