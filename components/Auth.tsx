@@ -2,27 +2,34 @@
 
 import { useAuth } from "@/lib/auth";
 import Image from "next/image";
+import logo from '@/public/images/svgviewer-output.svg'
+import Link from "next/link";
 
 function Auth() {
     const auth = useAuth();
     return (
-        <div className="flex flex-col justify-center items-center mt-5">
-            <h1 className="text-4xl font-bold">FLASH FEEDBACK</h1>
+        <div className="flex flex-col justify-center items-center  w-full h-screen">
 
-            {auth?.user && auth?.user.photoUrl && <div className="flex items-center gap-10">
-                <Image src={auth?.user?.photoUrl} alt="userImage" width={100} height={100} />
-                <p>Current User: {auth?.user?.name}:{auth?.user?.uid}</p>
-            </div>}
-            <button
-                className="mt-10 bg-orange-300 py-5 px-5 rounded-lg border-2
-                 border-lime-600"
-                onClick={(e) => auth?.signinWithGithub()}>Sign In</button>
-            {auth?.user &&
-                < button
-                    className="mt-10 bg-orange-300 py-5 px-5 rounded-lg border-2
-            border-lime-600"
-                    onClick={(e) => auth?.signout()}>Sign out</button>
-            }        </div >)
+            <Image alt="logo" src={logo} width={64} />
+            {!auth?.user ?
+                <button
+                    className="mt-4 leading-4"
+                    onClick={(e) => auth?.signinWithGithub()}>Sign In
+                </button>
+                :
+                <>
+                <button
+                    className="mt-4 leading-4"
+                    onClick={(e) => auth?.signout()}>Sign out
+                </button>
+                <Link
+                className="mt-4 leading-4"
+                href={'/dashboard'}>View Dashboard
+            </Link>
+            </>
+            }
+        </div >
+    )
 }
 
 export default Auth
