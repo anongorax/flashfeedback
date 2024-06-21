@@ -6,7 +6,7 @@ function EmptyState() {
 
     return (
         <>
-            <h4 className='text-2xl font-bold'>You haven't added any sites.</h4>
+            <h4 className="text-2xl font-bold">You have not added any sites.</h4>
             <p>Welcome 👋 lets get started</p>
             <button className='mt-3 bg-black text-white py-4 px-3
                 rounded-lg border-1'

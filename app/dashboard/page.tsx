@@ -7,7 +7,7 @@ import useSWR from 'swr';
 import { fetcher } from '../../utils/fetcher';
 import SitesTable from '@/components/SitesTable';
 
-function page() {
+function Page() {
     const auth = useAuth();
     const { data, error, isLoading } = useSWR('/api/sites', fetcher)
 
@@ -28,4 +28,4 @@ function page() {
     )
 }
 
-export default page
+export default Page

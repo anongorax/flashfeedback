@@ -27,7 +27,7 @@ function SitesTable({ sites }: { sites: Site[] }) {
                 </thead>
                 <tbody>
                     {sites.map((site) => (
-                        <tr className="odd:bg-white even:bg-slate-300 border-b ">
+                        <tr key={site.createdAt} className="odd:bg-white even:bg-slate-300 border-b ">
                             <th scope="row" className="px-6 py-4 text-black capitalize whitespace-nowrap">
                                 {site.name}
                             </th>
